@@ -13,15 +13,8 @@ module.exports = {
         path: `${__dirname}/images`,
       },
     },
-    'gatsby-plugin-emotion',
+    "gatsby-plugin-emotion",
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'posts',
-        path: 'posts',
-      },
-    },
   ],
 }
