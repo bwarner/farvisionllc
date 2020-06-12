@@ -7,10 +7,13 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import { Global, css } from "@emotion/core"
+import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import "normalize.css"
 
+import "./baikal.css"
 import Header from "./header"
-import "./layout.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +28,22 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Global
+        styles={css`
+          body {
+            font-family: "PT Serif", serif;
+            font-size: 18px;
+            background-color: white;
+            color: black;
+          }
+        `}
+      />
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
       <div
         style={{
           margin: `0 auto`,
@@ -34,11 +52,6 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     </>
   )
