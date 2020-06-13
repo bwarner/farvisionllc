@@ -13,7 +13,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import "normalize.css"
 
 import "./baikal.css"
-import Header from "./header"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +24,6 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
   return (
     <>
       <Global
@@ -43,6 +41,7 @@ const Layout = ({ children }) => {
           href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap"
           rel="stylesheet"
         />
+        <title>{data.site.siteMetadata.title}</title>
       </Helmet>
       <div
         style={{
