@@ -1,7 +1,8 @@
 import React from "react"
 import { css } from "@emotion/core"
 import { graphql, useStaticQuery } from "gatsby"
-import Image from "../components/image"
+import Img from "gatsby-image"
+import { Helmet } from "react-helmet"
 import SocialBar from "../components/social"
 import SEO from "../components/seo"
 import { Row, Col } from "../components/grid"
@@ -23,14 +24,17 @@ function useSubject() {
 }
 const IndexPage = () => {
   const {
-    file: { sharp: fluid },
+    file: {
+      sharp: { fluid },
+    },
   } = useSubject()
+
   return (
     <>
       <SEO title="Home" />
-      <Row columns={2} width={2} extraCls={css``}>
+      <Row columns={2} width={2}>
         <Col>
-          <Image fluid={{ fluid }} alt="Subject" />
+          <Img fluid={fluid} alt="Subject" />
         </Col>
         <Col>
           <div
